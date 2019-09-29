@@ -35,7 +35,6 @@ public abstract class Node implements Drawable {
 		child = new ArrayList<Node>();
 
 		this.description = "EMPTY NODE";
-
 	}
 
 	public Node (int x, int y, String description) {
@@ -50,6 +49,9 @@ public abstract class Node implements Drawable {
 	}
 
 	// Draw a template node with description, shape with String text inside
-	public abstract void Draw (Graphics g);
+	public abstract void draw (Graphics g);
+	
+	// Get the node as a single String
+	public abstract String toString();
 
 }

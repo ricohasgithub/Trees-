@@ -5,11 +5,18 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import node.Node;
+import node.SerialNode;
+
 public class Main extends JPanel {
-	
+
 	public void paintComponent (Graphics g) {
 		// Call parent constructor
 		super.paintComponent(g);
+		
+		Node test = new SerialNode(300, 250, "Hello World!");
+		test.draw(g);
+		
 	}
 
 	public static void main(String[] args) {
