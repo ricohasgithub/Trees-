@@ -16,7 +16,7 @@ public class Main extends JPanel {
 		// This is the access point to create and draw a new tree object
 		JFrame frame = new JFrame("Tree Tester");
 		frame.getContentPane().add(new Main());
-		frame.setSize(1000, 1000);
+		frame.setSize(800, 600);
 		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
