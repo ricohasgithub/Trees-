@@ -8,13 +8,15 @@ import javax.swing.JPanel;
 import node.Node;
 import node.SerialNode;
 
+import tree.Tree;
+
 public class Main extends JPanel {
 
 	public void paintComponent (Graphics g) {
 		// Call parent constructor
 		super.paintComponent(g);
 		
-		Node test = new SerialNode(300, 250, "Hello World!");
+		SerialNode test = new SerialNode(300, 250, "Hello World!");
 		test.draw(g);
 		
 	}

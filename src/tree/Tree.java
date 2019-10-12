@@ -2,6 +2,8 @@ package tree;
 
 import node.*;
 import utils.*;
+
+import java.awt.Graphics;
 import java.util.List;
 
 public class Tree {
@@ -32,11 +34,11 @@ public class Tree {
 		}
 		
 		// Otherwise, traverse the tree and insert the Node recursively
-		traverse(curr, 0, 0, next, index, fork);
+		traversePut(curr, 0, 0, next, index, fork);
 		
 	}
 	
-	public void traverse (Node curr, int cIndex, int cFork, Node insert, int fIndex, int fFork) {
+	public void traversePut (Node curr, int cIndex, int cFork, Node insert, int fIndex, int fFork) {
 		
 		// If the recursive algorithm has arrived at the desired insertion location within the tree structure, insert the Node and stop
 		if (cIndex == fIndex && cFork == fFork) {
@@ -51,7 +53,7 @@ public class Tree {
 			for (Node n : curr.child) {
 				// Traverse each child Node (increment cFork)
 				cFork++;
-				traverse(n, cIndex, cFork, insert, fIndex, fFork);
+				traversePut(n, cIndex, cFork, insert, fIndex, fFork);
 			}
 		} else if (cIndex > fIndex) {
 			
@@ -64,7 +66,7 @@ public class Tree {
 				// Also search through all of the Nodes located under the current Node subtree and the adjacent Node's subtrees
 				for (Node nc : n.child) {
 					cFork++;
-					traverse(n, cIndex, cFork, insert, fIndex, fFork);
+					traversePut(n, cIndex, cFork, insert, fIndex, fFork);
 				}
 			}
 			
@@ -72,6 +74,21 @@ public class Tree {
 		
 		// All subtree Nodes reached and no viable/viable solution found, regardless, break the recursive method
 		return;
+		
+	}
+	
+	// This void method recursively traverses the entire Node tree and draws all the Nodes
+	public void traverseDraw (Node curr, Graphics g) {
+		
+		if (curr.child == null) {
+			// No more children for this subtree, break the recursive method
+			curr.draw(g);
+			return;
+		}
+		
+		for (Node n : curr.child) {
+			traverseDraw(n, g);
+		}
 		
 	}
 	
